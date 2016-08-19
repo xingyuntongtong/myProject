@@ -1,0 +1,1258 @@
+/*首先设置默认样式*/
+*{
+    margin: 0;
+    padding: 0;
+    font-family: tahoma,arial,sans-serif;
+    font-size: 12px;
+}
+ul,ol{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+img{
+    display: block;
+    border: none;
+}
+input{
+    outline: none;
+}
+.clearfix:before,.clearfix:after{
+    display: block;
+    content: '';
+    clear: both;
+}
+.wrapper{
+    width: 1200px;
+    min-width: 1200px;
+    margin: 0 auto;
+}
+/*右侧导航栏*/
+.rightBar{
+    transition-duration: 1s;/*hover时的动画*/
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 9999;
+    width: 30px;
+    height: 100%;
+    color: #fff;
+    background: #202020;
+}
+/*把购物车定位，等窗口缩小的时候可固定*/
+html,body{
+    width: 100%;
+    height: 100%;
+}
+.rightBar .fix{
+    position: fixed;
+    top: 74px;
+    right: 0;/*右侧固定为0就是一直显示*/
+    z-index: 9999;
+    text-align: center;
+    padding: 4px 4px 0;
+    background: #202020;
+}
+.rightBar ul{
+    margin-top: 75px;
+}
+.rightBar ul .l1{
+    height: 90px;/*第一个li也就的空的设置高度占位*/
+}
+.rightBar ul li,.toTop{
+    position: relative;
+    text-align: center;
+    padding: 4px 4px 0;
+    background: #202020;
+}
+.rightBar ul li:hover,.rightBar .fix:hover,.toTop:hover{
+    background: #ef2f23;
+    cursor: pointer;
+    margin-top: -1px;/*把上边的边框覆盖了*/
+}
+.rightBar ul li:hover a,.rightBar .fix:hover a,.toTop:hover a{/*这样在hover的时候底图就不会动了*/
+    border-bottom: none;
+    padding: 1px 0 13px 0;
+}
+.rightBar ul li a,.rightBar .fix a,.toTop a{
+    display: block;
+    color: #fff;
+    width: 22px;
+    line-height: 15px;
+    text-align: center;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #919191;
+}
+.rightBar ul li a i,.rightBar .fix a i,.toTop a i{
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url("../images/icon1.png") no-repeat;
+}
+.rightBar .fix a .i1{
+    background-position: -4px -8px;
+    margin: 9px 0 2px 0;
+}
+.rightBar ul li a .i2{
+    background-position: -4px -38px;
+    margin: 8px 0 2px 0;
+}
+.rightBar ul li a .i3{
+    background-position: -4px -99px;
+    margin-top: 8px;
+}
+.rightBar ul li a .i4{
+    background-position: -4px -65px;
+    margin: 5px 0 3px 0;
+}
+.toTop{
+    display: none;
+    position: fixed;
+    right: 0;
+    bottom: 10px;
+    padding-top: 0;/*和上面的边框的距离缩小*/
+    z-index: 9999;
+}
+.toTop a{
+    border-bottom: none;
+    border-top: 1px solid #919191;
+    padding: 4px 0 0 0;
+}
+.toTop a .i5{
+    width: 30px;
+    height: 30px;
+    background-position: -4px -150px;
+    display: block;
+}
+.toTop:hover a{
+    border-top: none;
+    padding: 5px 0 0 0;
+}
+/*顶部导航栏*/
+.header{
+    height: 31px;
+    background: #f2f2f2;
+    border-bottom: 1px solid #ddd;
+}
+.header .nav ul{
+    float: right;
+}
+.nav ul li{
+    position: relative;
+    float: left;
+    line-height: 31px;
+    margin-right: 15px;
+}
+.nav ul li a{
+    color: #666;
+}
+.nav ul .hasLine{
+    border-left: 1px solid #ddd;
+    padding-left: 15px;
+}
+.nav ul li a i{
+    display: inline-block;
+    background: url("../images/icon2.png") no-repeat;
+}
+.nav ul li a .i1{
+    width: 13px;
+    height: 10px;
+    background-position: 0 -223px;
+    vertical-align: -1px;
+    margin-right: 5px;
+}
+.nav ul li a .i2{
+    width: 17px;
+    height: 14px;
+    background-position: 0 -112px;
+    vertical-align: -2px;
+    margin-right: 9px;
+}
+.nav ul li a .i3{
+    width: 19px;
+    height: 19px;
+    background-position: 0 -257px;
+    vertical-align: -6px;
+    margin-right: 5px;
+}
+.nav ul li a em{
+    display: inline-block;
+    width: 7px;
+    height: 4px;
+    background: url("../images/icon3.png") no-repeat 0 0;
+    margin-left: 3px;
+    vertical-align: 2px;
+}
+/*购物车的下拉框*/
+.nav ul .list4,.nav ul .list5,.nav ul .list6{
+    position: relative;
+    z-index: 1;/*只能给父级设置，不然在IE下不管用*/
+    /*IE7及更早版本对z-index的解析有个讨厌的Bug，如果父元素具有position: relative;属性，那么只设置子元素的z-index是不起作用的，父元素也得一起设置。也就是说你的#img和它上层的DIV都必须要有z-index才行。*/
+}
+.nav ul .list4:hover p,.nav ul .list5:hover ol,.nav ul .list6:hover ol{
+    display: block;
+}
+.nav ul .list4 p{
+    display: none;
+    position: absolute;
+    top: 31px;
+    left: -90px;
+    background: #eee;
+    border-radius: 0 0 5px 5px;
+    border: 1px solid #ddd;
+    border-top: none;
+    width: 200px;
+    height: 18px;
+    line-height: 18px;
+    padding: 18px 0;
+    text-align: center;
+    color: #999;
+}
+/*客户服务的下拉框*/
+.nav ul .list5 ol,.nav ul .list6 ol{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 31px;
+    width: 104px;
+    background: #eee;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 3px 3px;/*IE6~8下不兼容*/
+}
+.nav ul .list5 ol li,.nav ul .list6 ol li{
+    margin-bottom: 2px;
+}
+.nav ul .list5 ol li a,.nav ul .list6 ol li a{
+    display: block;
+    color: #444;
+    width: 64px;/*减去左右padding*/
+    height: 28px;
+    line-height: 28px;
+    padding: 0 20px;
+    text-align: center;
+}
+.nav ul .list5 ol li a:hover,.nav ul .list6 ol li a:hover{
+    background: #e4e4e4;
+}
+/*我的小店下拉框*/
+.nav ul .list6 ol{
+    width: 90px;
+}
+.nav ul .list6 ol li a{
+    width: 50px;
+}
+/*搜索框 标题*/
+.header-mid{
+    border-bottom: 1px solid #f46;
+}
+.header-mid .logo .lg{
+    float: left;
+    display: inline-block;
+    width: 250px;
+    height: 60px;
+    background: url("../images/logo.png") no-repeat;
+    margin: 37px 0 20px 0;
+}
+.header-mid .logo .search,.sticky .scroll .hide .search{
+    position: relative;
+    float: left;
+    width: 502px;
+    margin: 40px 0 0 99px;
+}
+.search .inner{
+    border: 1px solid #3a3a3a;/*设置一个外边框把东西都包里面*/
+    height: 33px;
+}
+.search .inner .select{
+    position: relative;
+    width: 70px;
+    float: left;
+    background: #fff;/*这样在移动的搜索框背景就是白的了*/
+}
+.search .inner .select:hover ol{
+    display: block;
+}
+.inner .select span{
+    display: inline-block;
+    height: 33px;
+    line-height: 33px;
+    color: #666;
+    padding-left: 12px;
+    cursor: pointer;
+}
+.inner .select i{
+    display: inline-block;
+    width: 7px;
+    height: 4px;
+    background: url("../images/icon2.png") no-repeat 0 -32px;
+    margin-left: 4px;
+    vertical-align: 2px;
+}
+.inner .select ol{
+    display: none;
+    position: absolute;
+    left: -1px;
+    top: 100%;
+    width: 70px;
+    background: #fff;
+    border: 1px solid #cecece;
+    border-top: 1px solid #3a3a3a;
+}
+.inner .select ol li .a1{
+    color: #333;
+}
+.inner .select ol li a{
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    color: #666;
+    text-align: center;
+}
+.inner .select ol li a:hover{
+    background: #f7f7f7;
+    color: #666;
+}
+.inner .txt{
+    float: left;
+    height: 21px;
+    line-height: 20px;
+    width: 344px;
+    color: #999;
+    border: none;
+    padding: 6px 10px 6px 6px;
+}
+.inner .btn{
+    float: left;
+    width: 70px;
+    height: 33px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    background: url("../images/icon2.png") no-repeat 27px -57px #3a3a3a;
+}
+.inner .searchHide{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 34px;
+    z-index: 1;
+    width: 500px;
+    min-height: 286px;
+    background: #fff;
+    border: 1px solid #cecece;
+    border-top: 1px solid #3a3a3a;
+}
+.inner .searchHide h3{
+    /*display: none;*/
+    height: 16px;
+    line-height: 16px;
+    color: #999;
+    font-weight: 400;
+    padding: 10px;
+}
+.inner .searchHide .searchBox{
+    display: none;
+}
+.inner .searchHide .searchBox li{
+    height: 33px;
+    line-height: 33px;
+    padding: 0 10px;
+    border-bottom: 1px dotted #eee;
+    cursor: pointer;
+    color: #333;
+    overflow: hidden;
+}
+.inner .searchHide .searchBox li:hover{
+    background: #EEE;
+}
+.search .menu{
+    width: 518px;
+    margin-top: 5px;
+    margin-left: -16px;
+}
+.search .menu a{
+    padding-left: 16px;
+    color: #999;
+}
+.logo .mogu{
+    position: relative;
+    width: 251px;
+    height: 144px;
+    float: right;
+    background: url("../images/img1.gif") no-repeat;
+}
+.logo .mogu img{
+    position: absolute;
+    top: 57px;
+    left: 106px;
+    width: 83px;
+    height: 83px;
+}
+/*中间内容*/
+.container .mainnav .wrap ul{
+    float: left;
+    margin-top: -36px;
+}
+.mainnav .wrap ul li{
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    font-size: 14px;
+    padding: 0 15px;
+    font-weight: bold;
+    float: left;
+}
+.mainnav .wrap ul .home{
+    width: 225px;
+    background-color: #f46;
+    color: #fff;
+    border-radius: 5px 5px 0 0;
+    margin-right: 30px;
+    padding: 0;
+}
+.mainnav .wrap ul li a{
+    float: left;
+    height: 18px;
+    line-height: 18px;
+    padding: 2px 15px;
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+    margin-top: 7px;
+    text-align: center;
+}
+.mainnav .wrap ul li a:hover{
+    text-decoration: underline;
+}
+/*竖排导航*/
+.container .content .side{
+    height: 550px;
+}
+.content .side .sidebar{
+    width: 223px;
+    height: 549px;
+    border: 1px solid red;
+    border-top: none;
+    float: left;
+}
+.side .sidebar ul li{
+    position: relative;
+}
+.side .sidebar ul li .navBck{
+    margin: 0 10px;
+    padding: 9px 0 10px 6px;
+    width: 193px;
+    border-bottom: 1px dotted #c7c7c7;
+    height: 19px;
+    line-height: 19px;
+}
+/*hover时右侧的线*/
+.side .sidebar ul li .navBck i{
+    display: none;
+    z-index: 2;/*这只能设置2因为隐藏的框已经是1了得比它大*/
+    position: absolute;
+    top: 0;
+    right: -1px;
+    height: 100%;
+    border-right: 1px solid #fff;
+}
+.side .sidebar ul li .noBor{
+    border-bottom: none;
+    padding-bottom: 13px;/*最下边的线离外边框有一段距离用padding把它撑开*/
+    line-height: 25px;
+}
+.side .sidebar ul li .a1{
+    display: inline-block;
+    color: #333;
+    font-weight: 700;
+    font-size: 14px;
+    margin-right: 8px;
+    vertical-align: 4px;
+}
+.side .sidebar ul li a:hover{
+    text-decoration: underline;
+}
+.side .sidebar ul li span{
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 149px;
+    vertical-align: top;
+}
+.side .sidebar ul li span a{
+    display: inline-block;
+    color: #666;
+}
+.side .sidebar ul li span .hot{
+    color: #f46;
+}
+.side .sidebar ul li ins{
+    display: inline-block;
+    font-size: 0;
+    height: 12px;
+    width: 0;
+    border-left: 1px solid #d8d8d8;
+    vertical-align: top;
+    margin: 4px 3px 0 5px;
+}
+/*hover效果*/
+.side .sidebar ul li:hover{
+    border-top: 1px solid #cfcfcf;
+    border-bottom: 1px solid #cfcfcf;
+    margin-top: -1px;/*这样带点的下边框就不会漏出来了*/
+}
+.side .sidebar ul li:hover .navBck{
+    border: none;
+}
+.side .sidebar ul li:hover .navBck i{
+    display: block;
+}
+.side .sidebar ul li:hover .navHide{
+    display: block;
+}
+.side .sidebar ul li .navHide{
+    display: none;
+    position: absolute;
+    left: 223px;
+    top: 0;
+    width: 290px;
+    height: 528px;
+    padding-bottom: 20px;
+    border: 1px solid #ddd;
+    background: #fff;
+    z-index: 1;
+}
+/*每一个隐藏框到上面的距离*/
+.side .sidebar ul li .n2{
+     top: -39px;
+}
+.side .sidebar ul li .n3{
+    top: -78px;
+}
+.side .sidebar ul li .n4{
+    top: -117px;
+}
+.side .sidebar ul li .n5{
+    top: -156px;
+}
+.side .sidebar ul li .n6{
+    top: -195px;
+}
+.side .sidebar ul li .n7{
+    top: -234px;
+}
+.side .sidebar ul li .n8 {
+    top: -273px;
+}
+.side .sidebar ul li .n9{
+    top: -312px;
+}
+.side .sidebar ul li .n10{
+    top: -351px;
+}
+.side .sidebar ul li .n11{
+    top: -390px;
+}
+.side .sidebar ul li .n12{
+     top: -429px;
+}
+.side .sidebar ul li .n13{
+    top: -468px;
+}
+.side .sidebar ul li .n14{
+    top: -507px;
+}
+.navHide dl{
+    display: inline-block;
+    width: 250px;
+    margin: 14px 20px 20px;
+    max-height: 90px;
+}
+.navHide dl dt{
+    height: 14px;
+    line-height: 14px;
+    font-weight: bold;
+}
+.navHide dl dt a{
+    color: #333;
+}
+.navHide dl dd{
+    float: left;
+    margin: 2px 0 0 -20px;
+}
+.navHide dl dd a{
+    height: 12px;
+    line-height: 12px;/*设置它在IE下不兼容*/
+    margin: 12px 0 0 20px;
+    float: left;
+    display: inline-block;
+    color: #666;
+    white-space: nowrap;/*不换行*/
+}
+.navHide dl dd .hot{
+    color: #f36;
+}
+.navHide .hidePic{
+    width: 250px;
+    height: 130px;
+    margin: 18px 20px 20px;
+}
+.navHide .hidePic img{
+    width: 100%;
+    height: 100%;
+}
+/*轮播图区域--中间部分*/
+.side .banner {
+    width: 975px;
+    margin-top: 20px;
+    float: right;
+}
+/*轮播图区域*/
+.side .banner .bannerNav{
+    position: relative;
+    width: 715px;
+    height: 530px;
+    margin-left: 20px;
+    float: left;
+    background: url("../images/default.png") no-repeat center center linen;
+    overflow: hidden;/*让其它的图片隐藏*/
+}
+.bannerNav .bannerImg{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5005px;/*一共6张图片*/
+    height: 100%;
+}
+.bannerNav .bannerImg div{
+    float: left;/*这里如果不浮动的话 隐藏的图片在下面而不是在后面*/
+    z-index: 0;/*先让所有的图片的层级和透明度都为0*/
+    opacity: 0;/*让哪张显示在改它们的值让其变成1*/
+    filter: alpha(opacity=0);
+}
+.bannerNav .bannerImg div img{
+    width: 100%;
+    height: 100%;
+}
+.bannerNav ul{
+    position: absolute;
+    left: 283px;
+    bottom: 10px;
+    width: 132px;
+    height: 20px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: 0 1px 4px #999;
+    z-index: 10;/*小圆点和左右按钮的层级是最高的让它在上面显示*/
+}
+.bannerNav ul li{
+    width: 20px;
+    height: 20px;
+    margin: 0 1px;/*right已经固定只能设置left*/
+    float: left;
+    cursor: pointer;
+    background: url("../images/banner3.png") no-repeat -97px -17px;
+}
+@keyframes move {
+    0%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+.bannerNav ul li.bg{
+    background: url("../images/banner3.png") no-repeat -157px -17px;
+    animation: move 5000ms cubic-bezier(0.6, 0, 0.6, 1) 1;/*只运动一次*/
+}
+.bannerNav ul li img{
+    width: 20px;
+    height: 20px;
+}
+.bannerNav a.btnLeft,a.btnRight{/*两个a的公共部分*/
+    display: none;
+    width: 28px;
+    height: 45px;
+    background: url("../images/banner3.png") no-repeat;
+    position: absolute;
+    top: 242.5px;/*(530-45)/2 是box的高度-图标的高度/2*/
+    opacity: .4;
+    filter: alpha(opacity=40);
+    z-index: 10;/*小圆点和左右按钮的层级是最高的让它在上面显示*/
+}
+.bannerNav a:hover{
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+.bannerNav a.btnLeft{
+    background-position: 0 0;
+    left: 0;
+}
+.bannerNav a.btnRight{
+    background-position: -50px 0;
+    right: 0;
+}
+
+/*右侧*/
+.side .banner .banR{
+    width: 218px;
+    height: 527px;
+    border: 1px solid #ddd;
+    padding-top: 1px;
+    float: right;
+}
+.side .banner .banR ul li{
+    margin: 20px 19px 0;
+    border-bottom: 1px dashed #ddd;
+    overflow: hidden;/*在IE下能把图片撑开*/
+}
+.side .banner .banR ul .li2{
+    border-bottom: none;
+}
+.side .banner .banR ul li a{
+    display: block;
+    width: 180px;
+    height: 220px;
+    margin: 0 auto 23px;
+}
+.side .banner .banR ul li a img{
+    width: 100%;
+    height: 100%;
+}
+/*限时快抢*/
+.content .limit{
+    height: 300px;
+    border-top: 1px solid #0c0c0c;
+    margin-top: 80px;
+}
+.content .limit .limitL{
+    position: relative;
+    float: left;
+    width: 225px;
+    height: 295px;
+    margin-right: 20px;
+    border-bottom: 5px solid #f46;
+}
+.limit .limitL a{
+    display: block;
+    width: 223px;
+    height: 295px;
+    border: 1px solid #ddd;
+    border-top: 1px solid #fff;
+    border-bottom: none;
+}
+.limit .limitL a img{
+    margin-top: 50px;
+    height: 245px;
+    width: 223px;
+}
+.limit .limitL a i{
+    width: 100px;
+    height: 24px;
+    line-height: 24px;
+    background: url("../images/xianshi1.png") right top no-repeat;
+    position: absolute;
+    right: 118px;
+    top: 24px;
+    z-index: 1;
+    font-style: normal;
+}
+.limit .limitL a .time{
+    position: absolute;
+    top: 24px;
+    right: 0;
+    width: 110px;
+    height: 25px;
+    line-height: 22px;
+}
+.limit .limitL a .time span{
+    width: 24px;
+    height: 24px;
+    line-height: 26px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 2px;
+    background-color: #f46;
+    color: #fff;
+    float: left;
+}
+.limit .limitL a .time .spot{
+    width: 12px;
+    text-align: center;
+    font-size: 16px;
+    color: #f46;
+    font-weight: normal;
+    float: left;
+}
+.limit .limitL a em{
+    position: absolute;
+    right: 15px;
+    bottom: 16px;
+    width: 75px;
+    height: 75px;
+    line-height: 73px;
+    text-align: center;
+    color: #fff;
+    background: url("../images/xianshi2.png") 0 -311px no-repeat;
+    font-style: normal;
+}
+.limit .limitL a em .b1{
+    font-size: 14px;
+    padding-top: 20px;
+}
+.limit .limitL a em b{
+    display: block;
+    width: 100%;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    font-weight: normal;
+}
+.limit .limitC{
+    float: left;
+    width: 575px;
+    height: 300px;
+}
+.limit .limitC a{
+    float: left;
+}
+.limit .limitC .a1{
+    width: 335px;
+    height: 300px;
+}
+.limit .limitC .a1 img{
+    width: 100%;
+    height: 100%;
+}
+.limit .limitC .a2{
+    width: 240px;
+    height: 300px;
+}
+.limit .limitC .a2 img{
+    width: 100%;
+    height: 100%;
+}
+.limit .limitR{
+    float: right;
+    width: 360px;
+    height: 300px;
+}
+.limit .limitR .a1{
+    display: block;
+    width: 360px;
+    height: 145px;
+}
+.limit .limitR .a1 img{
+    width: 100%;
+    height: 100%;
+}
+.limit .limitR .a2{
+    display: block;
+    width: 360px;
+    height: 145px;
+    margin-top: 10px;
+}
+.limit .limitR .a2 img{
+    width: 100%;
+    height: 100%;
+}
+/*蘑菇良品*/
+.content .good,.content .brand,.content .trend{
+    margin-top: 80px;
+}
+.title{
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    margin: 15px 0;
+}
+.title span{
+    float: left;
+    width: 492px;
+    height: 12px;
+    margin-top: 10px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+.title .l{
+    float: left;
+    height: 12px;
+    display: inline-block;
+    padding-left: 12px;
+    background: url("../images/title.png") no-repeat;
+}
+.title .c{
+    float: left;
+    display: inline-block;
+    width: 468px;
+    height: 12px;
+    background: url("../images/title.png") 0 -12px repeat;
+}
+.title .r{
+    float: left;
+    height: 12px;
+    display: inline-block;
+    padding-right: 12px;
+    background: url("../images/title.png") right -24px no-repeat;
+}
+.title h3{
+    float: left;
+    width: 186px;
+    height: 32px;
+    line-height: 32px;
+    background: url("../images/liangpin.png") center 2px no-repeat;
+    display: inline-block;
+    padding: 0 15px;
+    vertical-align: top;
+}
+.column{
+    height: 500px;
+}
+.good .column .colL{
+    width: 223px;
+    height: 498px;
+    border: 1px solid #ddd;
+    float: left;
+    padding-bottom: 8px;
+}
+.good .column .colL .colLT{
+    background-color: #fbfbfb;
+}
+.good .column .colL .colLT a{
+    display: block;
+    margin: 17px auto 0;
+    padding-bottom: 7px;
+    width: 176px;
+    height: 176px;
+}
+.good .column .colL .colLT a img{
+    width: 100%;
+    height: 100%;
+    margin: 3px auto 0;
+}
+.good .column .colL .colLT .a2{
+    margin: 17px auto 7px;
+    padding: 0;
+}
+.good .column .colL .colLF{
+    width: 210px;
+    margin: 0 auto;
+}
+.good .column .colL .colLF li{
+    float: left;
+    margin-top: 10px;
+    width: 70px;
+    height: 20px;
+    text-align: center;
+    border-radius: 2px;
+}
+.good .column .colL .colLF li a{
+    display: inline-block;
+    height: 18px;
+    line-height: 18px;
+    padding: 0 4px;
+    color: #333;
+    max-width: 60px;
+    border: 1px solid transparent;
+    border-radius: 1px;
+}
+.good .column .colL .colLF li a:hover{
+    border-color: #ddd;
+}
+.good .column .colR,.brand .column .comR,.content .trend .column .comR{
+    float: right;
+    width: 955px;
+}
+.good .column .colR .colRT{
+    width: 955px;
+    height: 330px;
+    margin-bottom: 20px;
+}
+.good .column .colR .colRT a{
+    float: left;
+    width: 305px;
+    height: 330px;
+    margin-right: 20px;
+}
+.good .column .colR .colRT .noMar,.good .column .colR .colRF .noMar{
+    margin-right: 0;
+}
+.good .column .colR .colRF{
+    width: 955px;
+    height: 150px;
+}
+.good .column .colR .colRF a{
+    float: left;
+    width: 305px;
+    height: 150px;
+    margin-right: 20px;
+}
+.good .column .colR .colRF a img{
+    float: left;
+    width: 130px;
+    height: 150px;
+}
+.good .column .colR .colRF a span{
+    display: inline-block;
+    float: right;
+    width: 165px;
+    padding-top: 50px;
+}
+.colR .colRF a span i{
+    font-style: normal;
+    display: block;
+    height: 24px;
+    line-height: 24px;
+    text-align: left;
+    font-size: 14px;
+    color: #333;
+}
+.colR .colRF a span .i2{
+    color: #999;
+}
+/*品牌站*/
+.content .brand .title h3{
+    background: url("../images/brand.jpg") center 2px no-repeat;
+}
+.column .comL{
+    float: left;
+    width: 225px;
+    height: 498px;
+}
+.column .comL .a1{
+    float: left;
+    width: 223px;
+    height: 254px;
+    border: 1px solid #ddd;
+    margin-bottom: -1px;
+}
+.column .comL .a1 img{
+    width: 183px;
+    height: 213px;
+    margin: 20px auto 0;
+}
+.column .comL .a2{
+    position: relative;
+    width: 111px;
+    height: 60px;
+    border: 1px solid #ddd;
+    margin: 0 -1px -1px 0;/*防止每个盒子都有边框会重叠*/
+    float: left;
+}
+.column .comL .a2 img{
+    width: 100%;
+    height: 100%;
+}
+.column .comL .a2:hover span{
+    display: block;
+}
+/*遮罩层*/
+.column .comL .a2 span{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 111px;
+    height: 60px;
+    z-index: 1;
+    background: #ccc;
+    opacity: .15;
+    filter: alpha(opacity=15);
+}
+.column .comR .comRL{
+    float: left;
+    width: 305px;
+    height: 500px;
+}
+.column .comR .comRL a img{
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 1px #ddd;
+}
+
+.column .comR .comRR{
+    float: right;
+    width: 650px;
+    height: 500px;
+    margin-right: -1px;
+}
+.column .comR .comRR a:hover{
+    text-decoration: underline;
+}
+.column .comR .comRR a{
+    float: left;
+    margin: 0 0 -1px -1px;
+    width: 215px;
+    height: 248px;
+    border: 1px solid #ddd;
+    text-align: center;
+    color: #333;
+}
+.column .comR .comRR a img{
+    margin: 20px auto 20px;
+    width: 175px;
+    height: 170px
+}
+.column .comR .comRR a span{
+    display: block;
+    color: #333;
+    max-width: 100%;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+}
+/*潮流女装*/
+.content .trend .title h3{
+    background: url("../images/chaoliu1.jpg") center 2px no-repeat;
+}
+
+/*尾部*/
+.footer{
+    background: url("../images/foot.png") center top repeat-x;
+    padding-bottom: 20px;
+    margin-top: 90px;
+}
+.footer .footT{
+    padding: 30px 0 6px 1px;
+}
+.footer .footT .footTL{
+    float: left;
+    width: 246px;
+}
+.footT .footTL .a1{
+    background: url("../images/foot1.png") no-repeat;
+    height: 38px;
+    display: block;
+}
+.footT .footTL .info{
+    margin-top: 2px;
+}
+.footTL .info p{
+    height: 16px;
+    line-height: 16px;
+    margin-top: 5px;
+    color: #999;
+}
+.footTL .info p a{
+    color: #999;
+}
+.footTL .info p .a2{
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+}
+.footTL .info p .a2 img{
+    float: left;
+}
+.footer .footT .footTR{
+    float: left;
+    margin-left: -30px;
+}
+.footTR dl{
+    float: left;
+    margin-left: 121px;
+    padding-bottom: 15px;
+}
+.footTR dl dt{
+    padding-bottom: 3px;
+    color: #333;
+    font-weight: 700;
+}
+.footTR dl dd{
+    height: 14px;
+    line-height: 14px;
+    margin-top: 8px;
+}
+.footTR dl dd a{
+    color: #666;
+}
+.footTR dl dd a:hover{
+    text-decoration: underline;
+}
+.footTR .pic dd{
+    height: 28px;
+    line-height: 28px;
+    margin: 8px 0 0 -12px;
+    overflow: hidden;
+}
+.footTR .pic dd a{
+    float: left;
+    width: 164px;
+    height: 28px;
+    background: url("../images/foot3.png") no-repeat;
+}
+.footTR .pic dd .a1{
+    background-position: -240px -50px;
+}
+.footTR .pic dd .a2{
+    width: 84px;
+    background-position: -400px -50px;
+}
+
+.footer .footF{
+    border-top: 1px solid #e5e5e5;
+    margin-top: 10px;
+    padding: 10px 0 0 0;
+    background: #fbfbfb;
+}
+.footer .footF ul li{
+    float: left;
+}
+.footF ul li a{
+    color: #4d4d4d;
+    padding: 10px 14px;
+}
+.footF ul li a:hover{
+    color: #fd4368;
+    text-decoration: underline;
+}
+/*移动的搜索框*/
+.sticky{
+    position: fixed;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: rgba(0,0,0,.8);
+    z-index: 9999;
+    transition: all .5s ease;
+}
+.sticky .scroll .icon{
+    float: left;
+    width: 152px;
+    height: 38px;
+    margin-top: 6px;
+    background: url("../images/sticky1.png") no-repeat;
+}
+.sticky .scroll .hide .search{
+    margin-top: 6px;
+    width: 652px;
+}
+.hide .search .inner .select{
+    border-radius: 4px 0 0 4px;
+}
+.hide .search .inner form .txt{
+    width: 494px;
+}
+.hide .search .inner form .btn{
+    background-color: #f46;
+    border-radius: 0 4px 4px 0;
+}
+.hide .search .inner .searchHide{
+    width: 650px;
+}
+
+
+
+
+
+
+

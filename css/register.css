@@ -1,0 +1,221 @@
+/*首先设置默认样式*/
+*{
+    margin: 0;
+    padding: 0;
+    font-family: tahoma,arial,sans-serif;
+    font-size: 12px;
+    -webkit-user-select: none;
+}
+ul,ol{
+    list-style: none;
+}
+a{
+    display: block;
+    text-decoration: none;
+    color: #333;
+}
+img{
+    display: block;
+    border: none;
+}
+input{
+    outline: none;
+}
+.clearfix:before,.clearfix:after{
+    display: block;
+    content: '';
+    clear: both;
+}
+.wrapper{
+    width: 900px;
+    min-width: 900px;
+    margin: 0 auto;
+}
+/*logo图标*/
+.con .reg{
+    padding: 27px 0 33px;
+    height: 597px;
+}
+.con .reg .logo a{
+    width: 220px;
+    height: 52px;
+    background: url("../images/resLogo.png") no-repeat;
+    display: inline-block;
+}
+.con .reg .content{
+    padding-top: 40px;
+    height: 500px;
+}
+.content .conL{
+    float: left;
+    width: 400px;
+    padding: 20px 0 0 40px;
+}
+.conL a{
+    height: 300px;
+    margin-bottom: 10px;
+}
+.content .conR{
+    float: right;
+    width: 322px;
+    border: 1px solid #dcdcdc;
+    padding: 0 0 30px 38px;
+}
+.conR h3{
+    margin-left: -38px;
+    font-size: 14px;
+    color: #333;
+    padding: 7px 40px;
+    height: 42px;
+    line-height: 42px;
+    border-bottom: 1px solid #ccc;
+}
+.conR .sign{
+    margin-top: 20px;
+}
+.sign .sign1,.sign .sign2,.sign .sign3,.sign .sign4{
+    position: relative;
+    margin-bottom: 15px;
+}
+.sign .sign1 select{
+    float: left;
+    width: 104px;
+    height: 30px;
+    margin-right: 10px;
+    line-height: 1.5;
+    border: 1px solid #c4c4c4;
+    border-radius: 0;
+    color: #333;
+    font-size: 14px;
+    padding: 4px 35px 4px 10px;
+    -webkit-appearance: none;/*让默认的小三角去掉*/
+    appearance: none;
+    outline: none;
+    background: url("../images/reg2.png") 100% no-repeat #fff;
+}
+.sign .sign1 select option{
+    font-weight: normal;
+    display: block;
+    white-space: pre;
+    padding: 0 2px 1px;
+}
+.sign .sign1 .tel,.sign .sign2 .code{
+    float: left;
+    width: 155px;
+    height: 28px;
+    padding: 0 6px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    letter-spacing: .25em;
+}
+.sign .sign2 .getCode{
+    float: left;
+    margin-left: 10px;
+    width: 105px;
+    height: 30px;
+    line-height: 30px;
+    background: #f55;
+    border-radius: 2px;
+    color: #fff;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+.sign .hide{
+    display: none;
+    width: 285px;
+    height: 30px;
+    line-height: 30px;
+    background: #e1e1e1;
+    border-radius: 2px;
+    margin-bottom: 15px;
+    color: darkviolet;
+    text-align: center;
+    cursor: pointer;
+}
+.sign .hide span{
+    width: 100%;
+    height: 100%;
+    font-size: 26px;
+    letter-spacing: 1em;
+    display: block;
+    font-weight: bold;
+}
+.sign .sign3 .sub{
+    border: none;
+    width: 285px;
+    height: 30px;
+    background: #ff4066;
+    border-radius: 2px;
+    cursor: pointer;
+    color: #fff;
+}
+.sign .sign4 span a{
+    text-decoration: underline;
+    display: inline-block;
+}
+.sign .sign5 a{
+    float: right;
+    margin-right: 40px;
+    color: #666;
+    text-decoration: underline;
+}
+/*footer*/
+.footer{
+    margin-top: 50px;
+    background: url("../images/reg3.png") repeat;
+}
+.footer .footCon{
+    padding-top: 25px;
+}
+.footer .footCon .footL{
+    float: left;
+    margin-bottom: 30px;
+}
+.footL dl{
+    float: left;
+    width: 130px;
+}
+.footL dl dt{
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+}
+.footL dl dd a{
+    color: #666;
+    line-height: 24px;
+}
+.footer .footCon .footR{
+    float: right;
+}
+.footR h3{
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 8px;
+}
+.footR .qr{
+    width: 180px;
+    height: 76px;
+    background: url("../images/reg4.png") no-repeat;
+}
+.footer .footCon p{
+    clear: both;
+    text-align: center;
+    color: #999;
+    border-top: 1px dashed #dcdcdc;
+    height: 40px;
+    line-height: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
